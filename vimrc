@@ -7,8 +7,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 "themes
 Plug 'morhetz/gruvbox'
+Plug 'alessandroyorba/alduin'
+" devicons for language icons
+Plug 'ryanoasis/vim-devicons'
 " autocomplete
-Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "vim sorround cs'" -> '' = "x2
 Plug 'tpope/vim-surround'
 " vim airline
@@ -17,9 +20,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'yggdroot/indentline'
 " { -> {}
 Plug 'jiangmiao/auto-pairs'
+" plug for push tags in word limits
+Plug 'mattn/emmet-vim'
+" tagbar for methods visualiation
+Plug 'majutsushi/tagbar'
+
 call plug#end()
 
+syntax enable
+filetype plugin indent on
+
+
+
 colorscheme gruvbox
+set t_Co=256
+
 let g:indentLine_char = '▏'
 let g:indentLine_setColors = 0
 
@@ -27,8 +42,42 @@ set number
 set mouse=a 
 set background=dark
 set cmdheight=2
+set fileencodings=pt_BR.UTF-8
+set encoding=UTF-8
+set backspace=2 " make backspace work like most other programs
 
 nnoremap <C-o> :NERDTreeToggle <cr>
+nmap <C-t> :TagbarToggle<CR>
+
+
+" SHORTCUTS
+"
+" Sorround-Vim:
+" Emmet-Vim:
+"
+" insert 'html:5 ' + <Ctrl-Y-,> :generates a body html by default
+" insert ':div>p#foo$*3>a' + <Ctrl-Y-,> :generates div with paragraphs
+" use visual to mark a text and insert 'ul>li*' + <Ctrl-Y-,> to set a text
+" between <li> tags that is between <ul> tags
+" to indexing selected text use <Ctrl-Y-/>
+" to put a href to a URL move the cursor at url and type <Ctrl-Y-a>
+
+
+" TAGBAR MAP
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
+
 
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
