@@ -12,8 +12,6 @@ Plug 'alessandroyorba/alduin'
 Plug 'ryanoasis/vim-devicons'
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"vim sorround cs'" -> '' = "x2
-Plug 'tpope/vim-surround'
 " vim airline
 Plug 'vim-airline/vim-airline'
 " | indentation
@@ -24,6 +22,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 " tagbar for methods visualiation
 Plug 'majutsushi/tagbar'
+" rust plugin
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
