@@ -1,3 +1,5 @@
 # dotfiles
 
-<p> Configs </p>
+VIM SETUP
+  
+<img alt="vim setup" src="vim_setup.png" width="100%"/>
