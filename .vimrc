@@ -11,6 +11,9 @@ Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'alessandroyorba/alduin'
 Plug 'nanotech/jellybeans.vim'
+Plug 'dracula/vim', { 'as': 'dracula'  }
+
+
 " devicons for language icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -20,15 +23,16 @@ Plug 'vim-airline/vim-airline-themes'
 " autoformat
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-
-
 " ------SYSTEM--------
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" devicons for language icons
 Plug 'ryanoasis/vim-devicons'
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" vim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " | indentation
 Plug 'yggdroot/indentline'
 " { -> {}
@@ -51,25 +55,22 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-colorscheme jellybeans 
+colorscheme gruvbox
 au FocusLost * silent! wa
 set t_Co=256
 autocmd BufWritePost * execute "Prettier"
 
 
-let g:indentLine_char = '|'
-
-
-
-colorscheme gruvbox
-
 set t_Co=256
 
+let yucolor="dark"
 let g:indentLine_char = '▏'
 let g:indentLine_setColors = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='minimalist'
+let g:airline_theme='tomorrow'
+let g:airline#extensions#tabline#left_sepnsu = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -93,21 +94,11 @@ set shiftwidth=4
 set cmdheight=1
 set smartindent
 
-set number
-set mouse=a 
-set background=dark
-set cmdheight=2
-set fileencodings=pt_BR.UTF-8
-set encoding=UTF-8
-set backspace=2 " make backspace work like most other programs
-set colorcolumn=80
-set clipboard=unnamedplus
-
 nnoremap <C-a> :tabnew <cr> :NERDTreeToggle <cr>
 nnoremap <C-v> :vsplit <cr> :NERDTreeToggle <cr>
 nnoremap <C-o> :NERDTreeToggle <cr>
 nmap <C-t> :TagbarToggle<CR>
-vnoremap <C-c> "+y 
+vnoremap <C-p> "+y 
 
 
 " SHORTCUTS
